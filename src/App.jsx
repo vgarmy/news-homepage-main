@@ -1,38 +1,70 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from 'react';
+import './App.css';
+import data from './data';
+import logo from './assets/logo.svg'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <h1 class="text-3xl font-bold underline">
-          Hello world!
-        </h1>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className="flex items-center justify-center w-screen h-screen" role="main">
+      <div className='w-[86rem] px-[10rem] pb-[8rem] pt-[5rem] flex gap-[3rem] flex-col'>
+        <nav class="flex justify-between items-center">
+          <div>
+            <img src={logo} alt="Logo" class="h-10" />
+          </div>
+          <ul class="flex space-x-6">
+            <li><a href="#" class="hover:text-gray-500">Home</a></li>
+            <li><a href="#" class="hover:text-gray-500">New</a></li>
+            <li><a href="#" class="hover:text-gray-500">Popular</a></li>
+            <li><a href="#" class="hover:text-gray-500">Trending</a></li>
+            <li><a href="#" class="hover:text-gray-500">Categories</a></li>
+          </ul>
+        </nav>
+        {/* Grid Layout */}
+        <div className="grid grid-cols-3 gap-6">
+          {/* First row */}
+          <div className="col-span-2">
+            <img src={data.main_article.image} alt={data.main_article.title} className="w-full h-auto mb-4" />
+            <div className='grid grid-cols-2 gap-6'>
+              <div className="col-span-1">
+                <h1 className='text-4xl font-extrabold text-[var(--Very-dark-blue)] mr-[7rem]'>{data.main_article.title}</h1>
+              </div>
+              <div className="col-span-1 flex flex-col justify-between h-full">
+                <p className='text-[var(--Dark-grayish-blue)] text-sm mb-4'>{data.main_article.description}</p>
+                <a
+                  href="#"
+                  className="w-1/2 text-center bg-[var(--Soft-red)] font-bold text-black py-2 px-4 self-start"
+                >
+                  {data.main_article.link}
+                </a>
+              </div>
+
+            </div>
+          </div>
+          <div className="bg-[var(--Very-dark-blue)] p-6">
+            <h2 className='text-[var(--Soft-orange)] font-extrabold text-2xl mb-4'>News</h2>
+            <div className="flex flex-col justify-between">
+              {data.new_articles.map((article, index) => (
+                <div className="mb-4" key={index}>
+                  <h3 className='text-[var(--Off-white)] font-bold mb-1'>{article.title}</h3>
+                  <p className='text-[var(--Grayish-blue)] text-sm'>{article.description}</p>
+                  {index !== data.new_articles.length - 1 && (
+                    <hr className="border-t border-[var(--Grayish-blue)] my-6" />
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+          {/* Second row */}
+          {data.featured_articles.map((article) => (
+            <div className="bg-gray-400 p-6 rounded-lg shadow-lg" key={article.id}>
+              <h3>{article.title}</h3>
+              <p>{article.description}</p>
+            </div>
+          ))}
+        </div>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    </div>
+  );
 }
 
-export default App
+export default App;
