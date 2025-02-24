@@ -2,7 +2,6 @@ import { useState } from 'react';
 import './App.css';
 import data from './data';
 import logo from './assets/logo.svg'
-import { FaBars, FaTimes } from "react-icons/fa"; // Import FontAwesome icons
 import menu from './assets/icon-menu.svg'
 import close from './assets/icon-menu-close.svg'
 
@@ -52,7 +51,8 @@ const App = () => {
         </nav>
         <div className="grid grid-cols-1 md:grid-cols-3 md:gap-6">
           <div className="col-span-2 mb-8">
-            <img src={data.main_article.image} alt={data.main_article.title} className="w-full h-[20rem] md:h-auto mb-4" />
+            <img src={data.main_article.image} alt={data.main_article.title} className="hidden md:block w-full h-[20rem] md:h-auto mb-4" />
+            <img src={data.main_article.mobileimage} alt={data.main_article.title} className="md:hidden w-full h-[20rem] md:h-auto mb-4" />
             <div className='grid grid-cols-1 md:grid-cols-2 md:gap-6'>
               <div className="col-span-1">
                 <h1 className='text-6xl font-extrabold text-[var(--Very-dark-blue)]'>{data.main_article.title}</h1>
