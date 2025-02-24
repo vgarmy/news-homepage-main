@@ -61,7 +61,7 @@ const App = () => {
                 <p className='text-[var(--Dark-grayish-blue)] text-sm mb-4 leading-[1.5rem]'>{data.main_article.description}</p>
                 <a
                   href="#"
-                  className="w-1/2 text-center bg-[var(--Soft-red)] font-bold text-black py-2 px-4 self-start"
+                  className="uppercase w-1/2 text-center hover:bg-[var(--Very-dark-blue)] hover:text-[var(--Soft-red)] bg-[var(--Soft-red)] font-bold text-[var(--Very-dark-blue)] py-3 px-4 self-start"
                 >
                   {data.main_article.link}
                 </a>
