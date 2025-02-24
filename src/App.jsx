@@ -10,9 +10,9 @@ const App = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="flex flex-col md:flex-row md:items-center md:justify-center w-screen min-h-screen pt-4 md:pt-0" role="main">
+    <div className="flex flex-col md:flex-row md:items-center md:justify-center w-screen min-h-screen pt-4 md:pt-0 bg-[var(--Off-white)]" role="main">
       <div className="w-full max-w-[90rem] px-6 md:px-[10rem] pb-[8rem] md:pt-[5rem] flex gap-[3rem] flex-col">
-        <nav className="flex justify-between items-center p-4 bg-white relative">
+        <nav className="flex justify-between items-center p-4 relative">
           <div>
             <img src={logo} alt="Logo" className="h-10" />
           </div>
@@ -33,7 +33,7 @@ const App = () => {
             className={`pt-[10rem] text-4xl fixed top-0 right-0 w-full h-screen bg-white shadow-lg transform ${isOpen ? "translate-x-[25%]" : "translate-x-[100%]"
               } transition-transform duration-300 md:hidden`}
           >
-            <ul className="flex flex-col p-6 space-y-4">
+            <ul className="flex flex-col p-6 space-y-4 text-[var(--Very-dark-blue)]">
               <li><a href="#" className="hover:text-gray-500">Home</a></li>
               <li><a href="#" className="hover:text-gray-500">New</a></li>
               <li><a href="#" className="hover:text-gray-500">Popular</a></li>
@@ -41,7 +41,7 @@ const App = () => {
               <li><a href="#" className="hover:text-gray-500">Categories</a></li>
             </ul>
           </div>
-          <ul className="hidden md:flex space-x-6">
+          <ul className="hidden md:flex space-x-5 font-bold text-[var(--Very-dark-blue)]">
             <li><a href="#" className="hover:text-gray-500">Home</a></li>
             <li><a href="#" className="hover:text-gray-500">New</a></li>
             <li><a href="#" className="hover:text-gray-500">Popular</a></li>
